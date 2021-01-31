@@ -1,13 +1,18 @@
-// Run this example by adding <%= javascript_pack_tag 'hello_react' %> to the head of your layout file,
-// like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom
-// of the page.
-
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+import PostList from '../../../components/admin/Post/PostList'
+import posts from '../../../redux/admin/posts'
+
+const store = createStore(posts, applyMiddleware(thunk));
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <App name="React" />,
-    document.body.appendChild(document.createElement('div')),
+  ReactDOM.render (
+    <Provider store={store}>
+      <PostList />
+    </Provider>,
+    document.getElementById('content')
   )
 })

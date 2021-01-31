@@ -2,10 +2,20 @@
 <html lang="vi">
   <head>
     <title>Admin</title>
+    <%= stylesheet_link_tag 'application_admin', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="sidenav">
+      <a href="#"><h2>React Demo</h2></a>
+      <a href="#">Link</a>
+      <a href="#">Link</a>
+      <a href="#">Link</a>
+    </div>
+
+    <div class="content" id="content">
+      <%= yield %>
+    </div>
   </body>
 </html>
