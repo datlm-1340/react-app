@@ -7,22 +7,26 @@
   </head>
 
   <body>
-    <div class="header">
-      <h1>React Demo</h1>
-      <p>Rails + React + Redux + Ant Design</p>
-    </div>
+    <%= render 'shared/loader' %>
 
-    <div class="topnav">
-      <a href="#">Home</a>
-      <a href="#" style="float:right">Admin</a>
-    </div>
+    <div class="container">
+      <div class="header">
+        <h1>React Demo</h1>
+        <p>Rails + React + Redux + Ant Design</p>
+      </div>
 
-    <div class="row">
-      <%= yield %>
-    </div>
+      <div class="topnav">
+        <a href="#">Home</a>
+        <a href="#" style="float:right">Admin</a>
+      </div>
 
-    <div class="footer">
-      <h2>Footer</h2>
+      <div class="row">
+        <%= yield %>
+      </div>
+
+      <div class="footer">
+        <h2>Footer</h2>
+      </div>
     </div>
   </body>
 </html>
