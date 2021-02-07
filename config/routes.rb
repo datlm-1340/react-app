@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   namespace :user, path: "" do
+    root to: 'posts#index'
     resources :posts
   end
 end
