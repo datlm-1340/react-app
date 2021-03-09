@@ -3,19 +3,22 @@
   <head>
     <title>Admin</title>
     <%= stylesheet_link_tag 'application_admin', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application_admin', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <%= render 'shared/loader' %>
+
     <div class="sidenav">
-      <a href="#"><h2>React Demo</h2></a>
-      <a href="#">Link</a>
-      <a href="#">Link</a>
-      <a href="#">Link</a>
+      <a href="/"><h2>React Demo</h2></a>
+      <%= link_to "Posts", admin_posts_path, class: "active" %>
+      <%= link_to "To User Page", user_root_path %>
     </div>
 
     <div class="content" id="content">
-      <%= yield %>
+      <div class="main-content">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

@@ -26,6 +26,13 @@ body {
   padding: 16px;
   text-decoration: none;
   display: block;
+  h2 {
+    color: white;
+  }
+  &.active {
+    background-color: #ddd;
+    color: black;
+  }
 }
 
 /* Change color on hover */
@@ -38,4 +45,14 @@ body {
 .content {
   margin-left: 200px;
   padding-left: 20px;
+}
+
+.main-content {
+  margin: 20px;
+}
+
+table {
+  .content-column {
+    width: 40%;
+  }
 }

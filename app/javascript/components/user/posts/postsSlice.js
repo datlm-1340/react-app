@@ -1,22 +1,28 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { getPosts } from '../../../services/userServices'
+import { getPostsAPI } from '../../../services/userServices'
 
-export const fetchPosts = createAsyncThunk(
-  'users/fetchPosts',
+export const getPosts = createAsyncThunk(
+  'user/getPosts',
   async (params) => {
-    const response = await getPosts(params);
+    const response = await getPostsAPI(params);
     return response;
   }
-)
+);
 
 const postsSlice = createSlice({
   name: 'posts',
-  initialState: {posts: []},
+  initialState: {
+    posts: [],
+    limit: 5,
+    page: 1
+  },
   reducers: {},
   extraReducers: {
-    [fetchPosts.fulfilled]: (state, action) => {
-      const {posts, status} = action.payload;
-      state.posts = posts;
+    [getPosts.fulfilled]: (state, action) => {
+      const {posts, is_truncated} = action.payload;
+      state.posts = state.posts.concat(posts);
+      state.is_truncated = is_truncated;
+      state.page++;
     },
   }
 });

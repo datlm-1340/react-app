@@ -3,11 +3,55 @@
 }
 
 body {
+  background: #f1f1f1;
+}
+
+#loader {
+  &.page-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    display: inherit;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    bottom: 0;
+  }
+  .loader {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    color: white;
+    -webkit-animation: spin 4s infinite linear;
+    -ms-animation: spin 4s infinite linear;
+    -moz-animation: spin 4s infinite linear;
+    animation: spin 4s infinite linear;
+  }
+}
+
+@-ms-keyframes spin {
+  from { -ms-transform: rotate(0deg); }
+  to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+  from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
+
+.container {
   font-family: Arial;
   padding: 10px;
   background: #f1f1f1;
-  width: 900px;
   margin: 0 auto;
+  width: 900px;
 }
 
 /* Header/Blog Title */
@@ -63,6 +107,14 @@ body {
   background-color: #aaa;
   width: 100%;
   padding: 20px;
+  height: 200px;
+}
+
+.fakeimg-big {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+  height: 500px;
 }
 
 /* Add a card effect for articles */
@@ -72,6 +124,17 @@ body {
   margin-top: 20px;
 }
 
+.title {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
 /* Clear floats after the columns */
 .row:after {
   content: "";
@@ -101,4 +164,14 @@ body {
     float: none;
     width: 100%;
   }
+}
+
+.load-more-btn {
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+  height: 50px;
+  background: #333;
+  color: #fff;
+  border: none;
 }
