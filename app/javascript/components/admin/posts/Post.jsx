@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import generateBackground from '../../../utils/backgroundGenerator'
 
-const Post = ({post, isDetail}) => {
+const Post = ({post}) => {
   const [background, setBackground] = useState(generateBackground());
 
   const formatDateTime = (datetime) => {
@@ -11,11 +11,7 @@ const Post = ({post, isDetail}) => {
 
   return (
     <div className="card">
-      {
-        isDetail
-        ? <h2 className="title">{post.title}</h2>
-        : <a className="title" href={`/posts/${post.id}`}>{post.title}</a>
-      }
+      <h2>{post.title}</h2>
       <h5>{formatDateTime(post.created_at)}</h5>
       <div className="fakeimg" style={background}></div>
       <p>{post.content}</p>

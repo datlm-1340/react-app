@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { getPostsAPI } from '../../../services/userServices'
+import { getPostsAPI } from '../../../services/adminServices'
 
 export const getPosts = createAsyncThunk(
-  'user/getPosts',
+  'admin/getPosts',
   async (params) => {
     const response = await getPostsAPI(params);
     return response;
@@ -20,9 +20,11 @@ const postsSlice = createSlice({
   extraReducers: {
     [getPosts.fulfilled]: (state, action) => {
       const {posts, is_truncated} = action.payload;
-      state.posts = state.posts.concat(posts);
-      state.is_truncated = is_truncated;
-      state.page++;
+      state.posts = posts;
+    },
+    [getPosts.rejected]: (state, action) => {
+      console.log(1);
+      console.log(action.error);
     },
   }
 });
