@@ -21,7 +21,6 @@ const PostList = () => {
   const [form] = Form.useForm();
   const post = state.modalEdit.post || {};
 
-
   const columns = [
     {
       title: '#',
@@ -67,10 +66,6 @@ const PostList = () => {
     )
   };
 
-  const handleOk = () => {
-
-  };
-
   const handleCancel = () => {
     dispatch(hideEditModal())
   };
@@ -85,7 +80,6 @@ const PostList = () => {
       <Modal
         title="Edit"
         visible={state.modalEdit.isVisible}
-        onOk={handleOk()}
         onCancel={handleCancel}
         width={768}
         okButtonProps={{

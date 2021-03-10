@@ -8,7 +8,7 @@ const adminServices = {
     return await apiCall('POST', '/posts', params);
   },
   async updatePostAPI(params) {
-    return await apiCall('POST', '/posts', params);
+    return await apiCall('PUT', `/posts/${params.id}`, params);
   },
   async deletePostAPI(params) {
     return await apiCall('POST', '/posts', params);
@@ -17,4 +17,5 @@ const adminServices = {
 
 export const {
   getPostsAPI,
+  updatePostAPI
 } = adminServices

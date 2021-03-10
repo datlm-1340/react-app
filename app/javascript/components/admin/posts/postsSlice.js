@@ -1,11 +1,17 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { getPostsAPI } from '../../../services/adminServices'
+import { getPostsAPI, updatePostAPI } from '../../../services/adminServices'
 
 export const getPosts = createAsyncThunk(
   'admin/getPosts',
   async (params) => {
-    const response = await getPostsAPI(params);
-    return response;
+    return await getPostsAPI(params);
+  }
+);
+
+export const updatePost = createAsyncThunk(
+  'admin/updatePost',
+  async (params) => {
+    return await updatePostAPI(params);
   }
 );
 
@@ -34,6 +40,12 @@ const postsSlice = createSlice({
     [getPosts.fulfilled]: (state, action) => {
       const {posts, is_truncated} = action.payload;
       state.posts = posts;
+    },
+    [updatePost.fulfilled]: (state, action) => {
+      console.log(action);
+    },
+    [updatePost.rejected]: (state, action) => {
+      console.log(action);
     }
   }
 });

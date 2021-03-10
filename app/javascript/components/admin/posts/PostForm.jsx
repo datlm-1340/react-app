@@ -1,6 +1,9 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Form, Input } from 'antd';
+import {
+  updatePost
+} from './postsSlice'
 
 const PostForm = () => {
   const dispatch = useDispatch();
@@ -15,7 +18,8 @@ const PostForm = () => {
   form.setFieldsValue(initValues);
 
   const onFinish = (values) => {
-    console.log('Success:', values);
+    const params = {id: post.id, ...values}
+    dispatch(updatePost(params));
   };
 
   return (
